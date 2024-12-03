@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { gsap } from "gsap";
 
 // Estilo para o contêiner principal
 const Container = styled.div`
@@ -176,6 +178,7 @@ const BackButton = styled(Link)`
   align-items: center;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 10; /* Garante que o botão fique acima de outros elementos */
 
   &:hover {
     transform: scale(1.1);
@@ -184,12 +187,28 @@ const BackButton = styled(Link)`
 `;
 
 const Login = ({ showPainel = true }) => {
+  useEffect(() => {
+    // Animação da LogoSection (movimento da esquerda para a posição inicial)
+    gsap.fromTo(
+      ".logo-section", 
+      { x: "-100%", opacity: 0 }, 
+      { x: "0%", opacity: 1, duration: 1, ease: "power2.out" }
+    );
+
+    // Animação da Logo (opacidade de 0 para 1)
+    gsap.fromTo(
+      ".logo", 
+      { opacity: 0 }, 
+      { opacity: 1, duration: 2, delay: 1 }
+    );
+  }, []);
+
   return (
     <Container>
       <BackButton to="/">&lt;</BackButton>
       <SubContainer>
-        <LogoSection>
-          <Logo />
+        <LogoSection className="logo-section">
+          <Logo className="logo" />
         </LogoSection>
         <FormSection>
           <FormBox>

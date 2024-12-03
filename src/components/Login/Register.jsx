@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Container = styled.div`
   display: flex;
@@ -22,6 +24,8 @@ const FormBox = styled.div`
   width: 300px;
   position: relative;
   overflow: visible;
+  opacity: 0; /* Inicialmente invisível */
+  transform: scale(0.8); /* Inicialmente menor */
 `;
 
 const Logo = styled.div`
@@ -119,13 +123,23 @@ const BackButton = styled.button`
 
 const Register = () => {
   const navigate = useNavigate();
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    gsap.to(formRef.current, {
+      opacity: 1,
+      scale: 1.2,
+      duration: 1.5,
+      ease: "power3.out",
+    });
+  }, []);
 
   return (
     <Container>
       <BackButton onClick={() => navigate("/login")}>
         &lt;
       </BackButton>
-      <FormBox>
+      <FormBox ref={formRef}>
         <Logo />
         <form>
           <Label>Nome:</Label>

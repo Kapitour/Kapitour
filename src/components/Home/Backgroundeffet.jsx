@@ -11,20 +11,6 @@ const PainelImg = styled.div`
   align-items: center;
 `;
 
-const PainelImg1 = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("https://github.com/Kapitour/Imgs-Padr-o/blob/main/home/BackgroundHeader.png?raw=true");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  z-index: 1;
-  opacity: 0.9;
-`;
-
 const PainelImg2 = styled.div`
   position: relative;
   background-image: url("https://github.com/Kapitour/Imgs-Padr-o/blob/main/home/KapitourMarica.png?raw=true");
@@ -54,7 +40,6 @@ const Backgroundeffect = () => {
 
   return (
     <PainelImg>
-      <PainelImg1 />
       <PainelImg2 ref={painelImg2Ref} />
     </PainelImg>
   );
