@@ -83,7 +83,7 @@ const Button = styled.button`
   }
 `;
 
-const Link = styled.a`
+const Link = styled(Link)`
   display: block;
   margin-top: 15px;
   color: rgba(255, 94, 94, 0.884); /* Vermelho pastel */

@@ -48,7 +48,7 @@ const RoutesGrid = styled.div`
 `;
 
 const Card = styled.div`
-  background: #950740; /* Fundo vermelho escuro */
+  background-color: rgba(201, 52, 52, 0.733);
   color: #ffffff; /* Texto branco */
   padding: 20px;
   border-radius: 15px;
@@ -82,7 +82,7 @@ const Title = styled.h2`
   font-weight: bold; /* Título mais grosso */
   margin-bottom: 20px;
   text-align: center; /* Centralizando o título */
-  background-color: #c3073f; /* Fundo vermelho vibrante */
+  background-color: rgba(201, 52, 52, 0.733);
   padding: 20px; /* Espaco interno */
   border-radius: 15px; /* Borda boleada */
 `;
@@ -100,7 +100,7 @@ const RotaPrincipal = () => {
       <Header showPainel={false} />
       {!selectedRoute ? (
         <MainContent>
-          <Title>Escolher Guias e Rotas para Fazer</Title>
+          <Title>Escolher Guias e Rotas para Aproveitar</Title>
           <FilterButtons>
             <Button
               onClick={() => {
