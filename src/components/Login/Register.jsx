@@ -128,7 +128,7 @@ const Register = () => {
   useEffect(() => {
     gsap.to(formRef.current, {
       opacity: 1,
-      scale: 1.2,
+      scale: 1,
       duration: 1.5,
       ease: "power3.out",
     });
