@@ -4,6 +4,7 @@ import RotasData from "./RotasData";
 import RotaDetalhes from "./RotaDetalhes";
 import styled from "styled-components";
 import Footer from "../Home/Footer"
+import ContactWidget from "../ContactWidget";
 
 const Container = styled.div`
   display: flex;
@@ -98,6 +99,7 @@ const RotaPrincipal = () => {
 
   return (
     <Container>
+      <ContactWidget />
       <Header showPainel={false} />
       {!selectedRoute ? (
         <MainContent>
