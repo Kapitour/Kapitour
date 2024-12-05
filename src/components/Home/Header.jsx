@@ -90,7 +90,6 @@ const Header = ({ showPainel = true }) => {
       <HeaderMenu>
         <Logo to="/" />
         <HeaderBtn to="/rotas">Rotas</HeaderBtn>
-        <HeaderBtn to="/contato">Contato</HeaderBtn>
         <HeaderBtn to="/loja">Loja</HeaderBtn>
         <LoginBtn to="/login">Login</LoginBtn>
       </HeaderMenu>
