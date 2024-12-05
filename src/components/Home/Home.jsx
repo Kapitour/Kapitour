@@ -6,6 +6,9 @@ import Rotas from "./Rotas";
 import Caroussel from "./Caroussel";
 import Footer from "./Footer";
 import Backgroundeffect from "./Backgroundeffet";
+import ContactWidget from "../ContactWidget";
+
+
 function Home() {
   return (
     <>
@@ -16,6 +19,7 @@ function Home() {
       <Parceiros />
       <Rotas />
       <Caroussel />
+      <ContactWidget />
       <Footer />
     </>
   );

@@ -3,6 +3,7 @@ import Header from "../Home/Header";
 import RotasData from "./RotasData";
 import RotaDetalhes from "./RotaDetalhes";
 import styled from "styled-components";
+import Footer from "../Home/Footer"
 
 const Container = styled.div`
   display: flex;
