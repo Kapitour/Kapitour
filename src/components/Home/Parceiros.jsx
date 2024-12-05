@@ -152,8 +152,8 @@ const Parceiros = () => {
             style={{ width: "80%", marginBottom: "20px" }}
           />
           <div style={{ color: "#fff", fontSize: "18px", lineHeight: "1.5", marginBottom: "20px", maxWidth: "400px" }}>
-            Vassouras Tec, incubadora tecnológica da Univassouras. Nós somos
-            encubados e temos os seu auxilio em nosso projeto com inovação e
+            Vassouras Tec, incubadora tecnológica da Univassouras, nós somos
+            encubados e temos o seu auxilio em nosso projeto com inovação e
             suporte jurídico e documental.
           </div>
         </Card>
