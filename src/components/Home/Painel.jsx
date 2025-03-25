@@ -5,22 +5,26 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ContainerPainel = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   flex-wrap: wrap; /* Caso tenha muitos cards */
+  @media (min-width: 320px) {
+    margin-top: -20em;
+  }
 `;
 
 const Card = styled.div`
-  width: 320px;
-  height: 500px;
+  width: 300px;
+  height: 400px;
   border-top-right-radius: 120px;
   border-bottom-left-radius: 120px;
   border-bottom-right-radius: 30px;
   border-top-left-radius: 30px;
   overflow: hidden;
-  border: 8px solid #e94747;
+  border: 8px solid #fff;
   position: relative;
   display: flex;
+  color: black;
   flex-direction: column;
   transition: background-color 0.5s ease, transform 0.5s ease;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
@@ -33,21 +37,37 @@ const Card = styled.div`
   &:hover ${() => Cover} {
     right: 0;
   }
+    @media screen and (min-width: 320px) and (max-width: 1280px){
+      display: none;
+      width: 230px;
+      heigth: 100px;
+      align-items: center;
+    };
+    
+    @media (min-width: 375px){
+
+    }
+    @media (min-width: 425px){
+
+    }
+    @media (){
+    }
 `;
 
 const Cover = styled.div`
-  width: 100%;
-  height: 100%;
   top: 0;
   right: -100%;
   position: absolute;
-  background-color: rgba(199, 30, 30, 0.418);
   backdrop-filter: blur(5px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: right 0.5s ease;
+  @media (min-width: 320px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const ImgCard = styled.img`
@@ -66,8 +86,11 @@ const Titulo = styled.h1`
 const Details = styled.p`
   text-transform: capitalize;
   font-size: 17px;
-  font-weight: 300;
   padding: 0 30px;
+  font-weight: 500;
+  color: #fff;
+  background: #c83349;
+  border-radius: 10px;
 `;
 
 const Painel = () => {
