@@ -1,3 +1,4 @@
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -13,11 +14,25 @@ const HeaderMenu = styled.header`
   position: fixed;
   top: 0;
   left: 0;
+  padding: 0;
+  margin: 0;
   width: 100%;
   z-index: 10;
   padding: 1em;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   font-weight: bold;
+
+  /* Estilo para dispositivos móveis */
+  @media (max-width: 1024px) {
+    justify-content: space-between;
+  }
+
+  /* Estilo para desktop (a partir de 1024px) */
+  @media (min-width: 1024px) {
+    justify-content: center;
+    margin: 0;
+    padding: 10px;
+  }
 `;
 
 const Logo = styled(Link)`
@@ -30,8 +45,46 @@ const Logo = styled(Link)`
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-right: 50px;
+  margin-left: auto;
   font-weight: bold;
+
+  @media screen and (min-width: 320px) and (max-width: 374px) {
+    margin-left: 15rem;
+    right: 40px;
+    width:60px;
+    height:50px;
+    position: absolute;
+  }
+    @media (min-width: 375px) and (max-width: 424px){
+    margin-left: 18rem;
+    right: 20px;
+    width:60px;
+    height:50px;
+    position: fixed;
+  }
+    @media (min-width: 425px) and (max-width: 767px){
+    margin-left: 21rem;
+    right: 20px;
+    width:60px;
+    height:50px;
+    position: fixed;
+  }
+    @media (min-width: 768px) and (max-width: 1023px){
+    margin-left: 42rem;
+    right: 35px;
+    width:60px;
+    height:50px;
+    position: absolute;
+  }
+    @media (min-width: 1280px) {
+    margin-left: -22rem;
+    width: 60px;
+    height:50px;
+    position: absolute;
+  }
+
+
+
 `;
 
 const HeaderBtn = styled(Link)`
@@ -56,10 +109,26 @@ const HeaderBtn = styled(Link)`
     letter-spacing: 3px;
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   }
+
+  /* Esconde os botões no mobile */
+  @media (max-width: 1024px) {
+    display: none;
+  }
+  
+ @media screen and (min-width: 1024px) and (max-width: 1279px) {
+  margin: 0 auto;
+  align-items: center;
+  margin-right:  10px;
+}
+  @media (min-width: 1280px) {
+    width: 60px;
+    height:50px;
+  }
+    
 `;
 
 const LoginBtn = styled(Link)`
-  background-color: rgba(201, 52, 52, 0.884);
+  background-color: rgba(52, 122, 201, 0.88);
   color: #fff;
   text-decoration: none;
   cursor: pointer;
@@ -67,32 +136,159 @@ const LoginBtn = styled(Link)`
   font-weight: 400;
   line-height: 45px;
   max-width: 160px;
+  padding: 10px;
   text-transform: uppercase;
   border-radius: 10px;
   margin: 0 10px;
   width: 150px;
   font-weight: bold;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, letter-spacing 0.3s ease,
-    text-shadow 0.3s ease;
+  transition: transform 0.3s ease, letter-spacing 0.3s ease, text-shadow 0.3s ease;
 
   &:hover {
     letter-spacing: 3px;
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     transform: scale(1.1);
   }
+
+  /* Esconde o botão no mobile */
+  @media (max-width: 1024px) {
+    display: none;
+  }
+    @media screen and (min-width: 1024px) and (max-width: 1279px) {
+  margin: 0 auto;
+  align-items: center;
+  margin-right: 750px;
+}
+   @media screen and (min-width: 1280px) and (max-width: 1440px) {
+  margin: 0 auto;
+  align-items: center;
+  margin-right: 20px;
+}
+  @media screen and (min-width: 1440px) and (max-width: 1980px) {
+  margin: 0 auto;
+  align-items: center;
+  margin-right: 20px;
+}
 `;
 
+// Estilos do Menu Mobile
+const HamburgerIcon = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  margin-left: 20px;
 
-const Header = ({ showPainel = true }) => {
+  div {
+    background-color: white;
+    height: 4px;
+    width: 100%;
+    border-radius: 5px;
+  }
+    @media screen and (min-width: 320px) and (max-width: 375px) {
+      margin-left: -10px;
+    }
+      @media screen and (min-width: 376px) and (max-width: 424px) {
+      margin-left: -10px;
+    }@media (min-width: 425px) {
+      margin-left: -10px;
+    }
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`;
+
+const MobileMenu = styled.div`
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  background-color: rgba(201, 52, 52, 0.9);
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  padding: 10px 0;
+  transition: transform 0.3s ease;
+
+  /* Ajuste da largura para telas pequenas */
+  @media (max-width: 768px) {
+    width: 70%;
+    left: 0;
+  }
+`;
+
+const MobileMenuItem = styled(Link)`
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    letter-spacing: 3px;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+`;
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  // Função para abrir/fechar o menu
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Fechar o menu ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target) && !event.target.closest('.hamburger-icon')) {
+        setIsMenuOpen(false); // Fecha o menu ao clicar fora
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <>
       <HeaderMenu>
+        {/* Menu hambúrguer no mobile */}
+        <HamburgerIcon className="hamburger-icon" onClick={toggleMenu}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </HamburgerIcon>
+
+        {/* Logo */}
         <Logo to="/" />
-        <HeaderBtn to="/rotas">Rotas</HeaderBtn>
-        <HeaderBtn to="/loja">Loja</HeaderBtn>
-        <LoginBtn to="/login">Login</LoginBtn>
+
+        {/* Botões do Header (desktop) */}
+        <div>
+          <HeaderBtn to="/rotas">Rotas</HeaderBtn>
+          <HeaderBtn to="/loja">Loja</HeaderBtn>
+          <LoginBtn to="/login">Login</LoginBtn>
+        </div>
       </HeaderMenu>
+
+      {/* Menu mobile */}
+      <MobileMenu ref={menuRef} isOpen={isMenuOpen}>
+        <MobileMenuItem to="/rotas" onClick={() => setIsMenuOpen(false)}>Rotas</MobileMenuItem>
+        <MobileMenuItem to="/loja" onClick={() => setIsMenuOpen(false)}>Loja</MobileMenuItem>
+        <MobileMenuItem to="/login" onClick={() => setIsMenuOpen(false)}>Login</MobileMenuItem>
+      </MobileMenu>
     </>
   );
 };
