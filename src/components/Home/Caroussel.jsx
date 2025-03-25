@@ -32,6 +32,18 @@ const Image = styled.img`
   height: 95%;
   object-fit: cover;
   border-radius: 15px;
+  @media (min-width: 320px) {
+    width: 95%;
+  }
+  @media (min-width: 375px) {
+  
+  }
+  @media (min-width: 425px) {
+  
+  }
+  @media (min-width: 768px) {
+  
+  }
 `;
 
 const Button = styled.button`
@@ -51,14 +63,14 @@ const Button = styled.button`
   z-index: 2;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(200, 39, 39, 0.8);
   }
 
   &.prev {
-    left: 10px;
+    left: 30px;
   }
   &.next {
-    right: 10px;
+    right: 30px;
   }
 `;
 
