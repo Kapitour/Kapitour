@@ -20,6 +20,24 @@ const PainelImg2 = styled.div`
   width: 50%;
   height: 70%;
   opacity: 0; /* Inicialmente invisível */
+  @media (min-width: 320px) and (max-width: 375px){
+    width:400px;
+    right: 4px;
+    left: 4px;
+  }
+    @media (min-width: 376px) and (max-width: 425px){
+    width:400px;
+    right: 4px;
+    left: 4px;
+  }
+    @media (min-width: 426px) and (max-width: 768px){
+    width: 400px;
+    right: 4px;
+    left: 4px;
+  }
+    @media (min-width: 1920px){
+    width: 800px;
+  }
 `;
 
 const Backgroundeffect = () => {
