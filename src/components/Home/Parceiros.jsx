@@ -38,8 +38,14 @@ const RowContainer = styled.div`
   max-width: 1200px;
   gap: 20px;
 
+  @media (min-width: 769px) {
+    flex-direction: column;
+    width: 500px;
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
+    width: 300px;
   }
 `;
 
@@ -60,8 +66,27 @@ const Card = styled.div`
   opacity: 0; /* Começa invisível */
   transform: translateY(50px); /* Move para baixo inicialmente */
 
-  @media (max-width: 768px) {
-    width: 100%;
+  @media (min-width: 320px) {
+    width: 50%;
+    padding: 19%;
+  }
+  @media (min-width: 375px) {
+    width: 70%;
+    padding: 13%;
+    margin-left: -5%;
+  }
+  @media (min-width: 425px) and (max-width: 768px) {
+    width: 90%;
+    padding: 13%;
+    margin-left: -15%;
+  }
+
+  @media (min-width: 768px) {
+  display: flex;
+  flex-direction: column;
+    width: 90%;
+    padding: 13%;
+    margin-left: -15%;
   }
 `;
 
