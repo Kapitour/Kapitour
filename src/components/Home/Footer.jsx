@@ -5,16 +5,20 @@ const FooterContainer = styled.footer`
   padding: 20px;
   background-color: #333333c8;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 220px;
   backdrop-filter: blur(7px);
+
+  @media (min-width: 320px) {
+    height: 43px;
+  } 
 `;
 
 // Estilo para o texto do copyright
 const Copyright = styled.div`
   text-align: center;
-  margin-top: 20px;
+  margin-top: -10px;
   font-size: 14px;
-  color: #dadada;
+  color:rgb(255, 255, 255);
 `;
 
 const Footer = () => {
