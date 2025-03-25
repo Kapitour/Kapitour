@@ -9,21 +9,51 @@ const MapWrapper = styled.div`
   height: calc(100vh - 70px); /* Subtraia a altura do Header */
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
   padding: 0 40px;
   box-sizing: border-box;
   margin-top: 70px; /* Espaço para evitar sobreposição */
-
+  
+  /* Media Queries */
   @media (max-width: 768px) {
-    padding: 0 20px;
-  }
-
-  @media (max-width: 480px) {
     padding: 0 10px;
     flex-direction: column;
+    margin-top: 20px; /* Ajuste para evitar sobreposição */
+  }
+
+  @media (min-width: 320px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: -50px;
+    left: 10px;
+    right: 10px;
+    top: 20px;
+    width: 130vw;
+    margin-top: -20rem;
+    z-index: 1;
+  }
+
+  @media (min-width: 375px) {
+    align-items: center;
+    justify-content: center;
+    margin-left: -60px;
+    left: 20px;
+    right: 20px;
+    width: 130vw;
+    padding: 20px;
+    margin-top: -20rem;
+  }
+
+  @media (min-width: 768px) {
+    width: 100%;
+    height: calc(100vh - 70px); /* Restabelece as dimensões para dispositivos maiores */
+    margin-top: 70px;
   }
 `;
+
 
 const Container = styled.div`
   height: 80%;
@@ -33,6 +63,14 @@ const Container = styled.div`
   padding: 20px;
   overflow-y: auto;
   color: white;
+  @media (min-width: 320px) {
+    display: flex;
+    margin-top: 1rem;
+    gap:2rem;
+    width:250px;
+    height: 500px;
+    
+  }
 `;
 
 const Title = styled.h2`
@@ -52,7 +90,7 @@ const Mapa = () => {
   // Ícone personalizado
   const customIcon = new L.Icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
-    iconSize: [30, 30],
+    iconSize: [10, 10],
     iconAnchor: [15, 30],
     popupAnchor: [0, -30],
     shadowUrl:
@@ -66,7 +104,7 @@ const Mapa = () => {
       <MapContainer
         center={position}
         zoom={13}
-        style={{ height: "80%", width: "65%" }}
+        style={{ height: "80%", width: "65%",}}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
