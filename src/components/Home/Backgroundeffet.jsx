@@ -9,6 +9,7 @@ const PainelImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden; /* Evita rolagem lateral */
 `;
 
 const PainelImg2 = styled.div`
@@ -19,39 +20,31 @@ const PainelImg2 = styled.div`
   z-index: 1;
   width: 50%;
   height: 70%;
-  opacity: 0; /* Inicialmente invisível */
-  @media (min-width: 320px) and (max-width: 375px){
-    width:400px;
-    right: 4px;
-    left: 4px;
+  opacity: 0;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    max-width: 400px;
+    right: auto;
+    left: auto;
   }
-    @media (min-width: 376px) and (max-width: 425px){
-    width:400px;
-    right: 4px;
-    left: 4px;
-  }
-    @media (min-width: 426px) and (max-width: 768px){
-    width: 400px;
-    right: 4px;
-    left: 4px;
-  }
-    @media (min-width: 1920px){
+
+  @media (min-width: 1920px) {
     width: 800px;
   }
 `;
 
-const Backgroundeffect = () => {
-  const painelImg2Ref = useRef(null); // Referência para o PainelImg2
+const BackgroundEffect = () => {
+  const painelImg2Ref = useRef(null);
 
   useEffect(() => {
-    // Animação com GSAP
     gsap.to(painelImg2Ref.current, {
-      opacity: 1, // Transição para 1
-      duration: 2, // Duração da animação em segundos
-      ease: "power2.out", // Suavidade na animação
+      opacity: 1,
+      duration: 2,
+      ease: "power2.out",
       scrollTrigger: {
-        trigger: painelImg2Ref.current, // Inicia ao atingir o elemento
-        start: "top 80%", // Quando 80% do viewport atingir o elemento
+        trigger: painelImg2Ref.current,
+        start: "top 80%",
       },
     });
   }, []);
@@ -63,4 +56,4 @@ const Backgroundeffect = () => {
   );
 };
 
-export default Backgroundeffect;
+export default BackgroundEffect;
