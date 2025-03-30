@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 
 const CarouselContainer = styled.div`
   position: relative;
-  width: 80%;
+  width: 90%;
+  max-width: 800px;
   height: 300px;
   margin: 0 auto;
   overflow: hidden;
@@ -14,12 +15,12 @@ const CarouselContainer = styled.div`
 const CarouselContent = styled.div`
   display: flex;
   transition: transform 0.5s ease-in-out;
-  transform: translateX(-${(props) => props.currentIndex * 50}%); /* Mostra 2 slides (50% cada) */
+  transform: translateX(-${(props) => props.currentIndex * 100}%);
 `;
 
 const Slide = styled.div`
   flex-shrink: 0;
-  width: 50%; /* Cada slide ocupa 50% da largura */
+  width: 100%;
   height: 300px;
   display: flex;
   justify-content: center;
@@ -28,22 +29,10 @@ const Slide = styled.div`
 `;
 
 const Image = styled.img`
-  width: 95%;
-  height: 95%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 15px;
-  @media (min-width: 320px) {
-    width: 95%;
-  }
-  @media (min-width: 375px) {
-  
-  }
-  @media (min-width: 425px) {
-  
-  }
-  @media (min-width: 768px) {
-  
-  }
 `;
 
 const Button = styled.button`
@@ -67,10 +56,10 @@ const Button = styled.button`
   }
 
   &.prev {
-    left: 30px;
+    left: 10px;
   }
   &.next {
-    right: 30px;
+    right: 10px;
   }
 `;
 
@@ -79,13 +68,13 @@ const Carousel = ({ items }) => {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === Math.ceil(items.length / 2) - 1 ? 0 : prevIndex + 1
+      prevIndex === items.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? Math.ceil(items.length / 2) - 1 : prevIndex - 1
+      prevIndex === 0 ? items.length - 1 : prevIndex - 1
     );
   };
 
@@ -96,9 +85,7 @@ const Carousel = ({ items }) => {
 
   return (
     <CarouselContainer>
-      <Button className="prev" onClick={prevSlide}>
-        ◀
-      </Button>
+      <Button className="prev" onClick={prevSlide}>◀</Button>
       <CarouselContent currentIndex={currentIndex}>
         {items.map((item, index) => (
           <Slide key={index}>
@@ -106,9 +93,7 @@ const Carousel = ({ items }) => {
           </Slide>
         ))}
       </CarouselContent>
-      <Button className="next" onClick={nextSlide}>
-        ▶
-      </Button>
+      <Button className="next" onClick={nextSlide}>▶</Button>
     </CarouselContainer>
   );
 };
