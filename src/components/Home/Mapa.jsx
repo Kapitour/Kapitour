@@ -54,33 +54,44 @@ const MapWrapper = styled.div`
   }
 `;
 
-
 const Container = styled.div`
   height: 80%;
-  width: 30%;
+  width: 100%;
+  max-width: 400px; /* Limita a largura máxima */
   background-color: rgba(201, 52, 52, 0.733);
   border-radius: 15px;
   padding: 20px;
   overflow-y: auto;
   color: white;
-  @media (min-width: 320px) {
-    display: flex;
-    margin-top: 1rem;
-    gap:2rem;
-    width:250px;
-    height: 500px;
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Media Queries para responsividade */
+  @media (max-width: 768px) {
+    width: 90%; /* Reduz a largura em telas menores */
+    margin-top: 10px;
+    height: 50%;
+  }
+
+  @media (max-width: 425px) {
+    width: 95%; /* Aumenta a largura no menor tamanho de tela */
+    height: 50%;
+    margin-top: 10px;
   }
 `;
 
 const Title = styled.h2`
   font-size: 20px;
   margin-bottom: 10px;
+  text-align: center;
 `;
 
 const Description = styled.p`
   font-size: 16px;
   line-height: 1.5;
+  text-align: center;
 `;
 
 const Mapa = () => {
