@@ -55,36 +55,37 @@ const Logo = styled(Link)`
     height:50px;
     position: absolute;
   }
-    @media (min-width: 375px) and (max-width: 424px){
+
+  @media (min-width: 375px) and (max-width: 424px){
     margin-left: 18rem;
     right: 20px;
     width:60px;
     height:50px;
     position: fixed;
   }
-    @media (min-width: 425px) and (max-width: 767px){
+
+  @media (min-width: 425px) and (max-width: 767px){
     margin-left: 21rem;
     right: 20px;
     width:60px;
     height:50px;
     position: fixed;
   }
-    @media (min-width: 768px) and (max-width: 1023px){
+
+  @media (min-width: 768px) and (max-width: 1023px){
     margin-left: 42rem;
     right: 35px;
     width:60px;
     height:50px;
     position: absolute;
   }
-    @media (min-width: 1280px) {
+
+  @media (min-width: 1280px) {
     margin-left: -22rem;
     width: 60px;
     height:50px;
     position: absolute;
   }
-
-
-
 `;
 
 const HeaderBtn = styled(Link)`
@@ -114,17 +115,17 @@ const HeaderBtn = styled(Link)`
   @media (max-width: 1024px) {
     display: none;
   }
-  
- @media screen and (min-width: 1024px) and (max-width: 1279px) {
-  margin: 0 auto;
-  align-items: center;
-  margin-right:  10px;
-}
+
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    margin: 0 auto;
+    align-items: center;
+    margin-right: 10px;
+  }
+
   @media (min-width: 1280px) {
     width: 60px;
     height:50px;
   }
-    
 `;
 
 const LoginBtn = styled(Link)`
@@ -155,21 +156,24 @@ const LoginBtn = styled(Link)`
   @media (max-width: 1024px) {
     display: none;
   }
-    @media screen and (min-width: 1024px) and (max-width: 1279px) {
-  margin: 0 auto;
-  align-items: center;
-  margin-right: 750px;
-}
-   @media screen and (min-width: 1280px) and (max-width: 1440px) {
-  margin: 0 auto;
-  align-items: center;
-  margin-right: 20px;
-}
+
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    margin: 0 auto;
+    align-items: center;
+    margin-right: 750px;
+  }
+
+  @media screen and (min-width: 1280px) and (max-width: 1440px) {
+    margin: 0 auto;
+    align-items: center;
+    margin-right: 20px;
+  }
+
   @media screen and (min-width: 1440px) and (max-width: 1980px) {
-  margin: 0 auto;
-  align-items: center;
-  margin-right: 20px;
-}
+    margin: 0 auto;
+    align-items: center;
+    margin-right: 20px;
+  }
 `;
 
 // Estilos do Menu Mobile
@@ -188,14 +192,18 @@ const HamburgerIcon = styled.div`
     width: 100%;
     border-radius: 5px;
   }
-    @media screen and (min-width: 320px) and (max-width: 375px) {
-      margin-left: -10px;
-    }
-      @media screen and (min-width: 376px) and (max-width: 424px) {
-      margin-left: -10px;
-    }@media (min-width: 425px) {
-      margin-left: -10px;
-    }
+
+  @media screen and (min-width: 320px) and (max-width: 375px) {
+    margin-left: -10px;
+  }
+
+  @media screen and (min-width: 376px) and (max-width: 424px) {
+    margin-left: -10px;
+  }
+
+  @media (min-width: 425px) {
+    margin-left: -10px;
+  }
 
   @media (min-width: 1024px) {
     display: none;
