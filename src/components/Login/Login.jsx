@@ -12,12 +12,16 @@ const Container = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  justify-content: center; /* Centraliza o conteúdo */
+  align-items: center; /* Centraliza verticalmente */
 `;
 
 const SubContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  justify-content: center; /* Centraliza o conteúdo do SubContainer */
+  align-items: center;
 `;
 
 const LogoSection = styled.div`
@@ -33,6 +37,21 @@ const LogoSection = styled.div`
   justify-content: center;
   align-items: center;
   width: 50%;
+  padding: 20px;
+
+  /* Ajuste para telas pequenas */
+  @media (max-width: 768px) {
+    width: 100%; /* Ocupa 100% da largura em telas pequenas */
+    height: auto; /* Ajusta a altura para manter o conteúdo visível */
+    background-color: transparent; /* Remove o fundo vermelho */
+    display: none;
+  }
+  @media (min-width: 769px) {
+    width: 100%; /* Ocupa 100% da largura em telas pequenas */
+    height: auto; /* Ajusta a altura para manter o conteúdo visível */
+    background-color: transparent; /* Remove o fundo vermelho */
+    display: none;
+  }
 `;
 
 const Logo = styled.div`
@@ -49,15 +68,24 @@ const FormSection = styled.div`
   justify-content: center;
   align-items: center;
   width: 50%;
+  padding: 20px;
+
+  /* Ajuste para telas pequenas */
+  @media (max-width: 768px) {
+    width: 100%; /* Ocupa 100% da largura em telas pequenas */
+    justify-content: center; /* Centraliza o formulário */
+    padding: 20px; /* Ajusta o padding para telas menores */
+  }
 `;
 
 const FormBox = styled.div`
   background-color: #333;
-  padding: 50px;
+  padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   text-align: center;
-  width: 300px;
+  width: 100%;
+  max-width: 400px; /* Define a largura máxima */
 `;
 
 const Label = styled.label`
