@@ -55,37 +55,36 @@ const Logo = styled(Link)`
     height:50px;
     position: absolute;
   }
-
-  @media (min-width: 375px) and (max-width: 424px){
+    @media (min-width: 375px) and (max-width: 424px){
     margin-left: 18rem;
     right: 20px;
     width:60px;
     height:50px;
     position: fixed;
   }
-
-  @media (min-width: 425px) and (max-width: 767px){
+    @media (min-width: 425px) and (max-width: 767px){
     margin-left: 21rem;
     right: 20px;
     width:60px;
     height:50px;
     position: fixed;
   }
-
-  @media (min-width: 768px) and (max-width: 1023px){
+    @media (min-width: 768px) and (max-width: 1023px){
     margin-left: 42rem;
     right: 35px;
     width:60px;
     height:50px;
     position: absolute;
   }
-
-  @media (min-width: 1280px) {
+    @media (min-width: 1280px) {
     margin-left: -22rem;
     width: 60px;
     height:50px;
     position: absolute;
   }
+
+
+
 `;
 
 const HeaderBtn = styled(Link)`
@@ -115,17 +114,17 @@ const HeaderBtn = styled(Link)`
   @media (max-width: 1024px) {
     display: none;
   }
-
-  @media screen and (min-width: 1024px) and (max-width: 1279px) {
-    margin: 0 auto;
-    align-items: center;
-    margin-right: 10px;
-  }
-
+  
+ @media screen and (min-width: 1024px) and (max-width: 1279px) {
+  margin: 0 auto;
+  align-items: center;
+  margin-right:  10px;
+}
   @media (min-width: 1280px) {
     width: 60px;
     height:50px;
   }
+    
 `;
 
 const LoginBtn = styled(Link)`
@@ -156,24 +155,21 @@ const LoginBtn = styled(Link)`
   @media (max-width: 1024px) {
     display: none;
   }
-
-  @media screen and (min-width: 1024px) and (max-width: 1279px) {
-    margin: 0 auto;
-    align-items: center;
-    margin-right: 750px;
-  }
-
-  @media screen and (min-width: 1280px) and (max-width: 1440px) {
-    margin: 0 auto;
-    align-items: center;
-    margin-right: 20px;
-  }
-
+    @media screen and (min-width: 1024px) and (max-width: 1279px) {
+  margin: 0 auto;
+  align-items: center;
+  margin-right: 750px;
+}
+   @media screen and (min-width: 1280px) and (max-width: 1440px) {
+  margin: 0 auto;
+  align-items: center;
+  margin-right: 20px;
+}
   @media screen and (min-width: 1440px) and (max-width: 1980px) {
-    margin: 0 auto;
-    align-items: center;
-    margin-right: 20px;
-  }
+  margin: 0 auto;
+  align-items: center;
+  margin-right: 20px;
+}
 `;
 
 // Estilos do Menu Mobile
@@ -192,18 +188,14 @@ const HamburgerIcon = styled.div`
     width: 100%;
     border-radius: 5px;
   }
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    margin-left: -10px;
-  }
-
-  @media screen and (min-width: 376px) and (max-width: 424px) {
-    margin-left: -10px;
-  }
-
-  @media (min-width: 425px) {
-    margin-left: -10px;
-  }
+    @media screen and (min-width: 320px) and (max-width: 375px) {
+      margin-left: -10px;
+    }
+      @media screen and (min-width: 376px) and (max-width: 424px) {
+      margin-left: -10px;
+    }@media (min-width: 425px) {
+      margin-left: -10px;
+    }
 
   @media (min-width: 1024px) {
     display: none;
@@ -213,23 +205,25 @@ const HamburgerIcon = styled.div`
 const MobileMenu = styled.div`
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   flex-direction: column;
-  position: absolute;
-  top: 70px;
+  position: fixed; /* Alterado de absolute para fixed */
+  top: 70px; /* Mantém o menu fixo abaixo do header */
   left: 0;
   background-color: rgba(201, 52, 52, 0.9);
   width: 250px;
-  border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-  z-index: 10;
+  z-index: 1000; /* Garante que fique acima de outros elementos */
   padding: 10px 0;
   transition: transform 0.3s ease;
 
   /* Ajuste da largura para telas pequenas */
   @media (max-width: 768px) {
-    width: 70%;
+    margin-top: -13px;
+    width: 50%;
     left: 0;
+    border: none;
   }
 `;
+
 
 const MobileMenuItem = styled(Link)`
   color: white;
