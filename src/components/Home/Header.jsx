@@ -214,8 +214,21 @@ const MobileMenu = styled.div`
   transition: transform 0.3s ease;
 
   /* Ajuste da largura para telas pequenas */
-  @media (max-width: 768px) {
-    margin-top: -13px;
+  @media (min-width: 320px) and (max-width: 375px) {
+    margin-top: 12px;
+    width: 50%;
+    left: 0;
+    border: none;
+  }
+  
+  @media (min-width: 376px) and (max-width: 425px) {
+    margin-top: 20px;
+    width: 50%;
+    left: 0;
+    border: none;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    margin-top: -10px;
     width: 50%;
     left: 0;
     border: none;
