@@ -27,11 +27,20 @@
 * {
   text-decoration: none;
   border: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
-  height: 100%;
-  margin: 0;
+  overflow-x: hidden; /* Impede o scroll horizontal */
+  margin: 0; /* Remove qualquer margem padrão */
   padding: 0;
 }
+
+.container, .content, .main, .wrapper, .section {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 
