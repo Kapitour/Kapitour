@@ -49,32 +49,30 @@ const Logo = styled(Link)`
   font-weight: bold;
 
   @media screen and (min-width: 320px) and (max-width: 374px) {
-    margin-left: 15rem;
+    margin-left: 13rem;
     right: 40px;
     width:60px;
     height:50px;
-    position: absolute;
   }
     @media (min-width: 375px) and (max-width: 424px){
-    margin-left: 18rem;
-    right: 20px;
+    margin-left: 16rem;
+    right: 10px;
     width:60px;
     height:50px;
-    position: fixed;
   }
     @media (min-width: 425px) and (max-width: 767px){
-    margin-left: 21rem;
+    margin-left: 20rem;
     right: 20px;
     width:60px;
     height:50px;
     position: fixed;
   }
     @media (min-width: 768px) and (max-width: 1023px){
-    margin-left: 42rem;
+    margin-left: 50rem;
     right: 35px;
     width:60px;
     height:50px;
-    position: absolute;
+    position: fixed;
   }
     @media (min-width: 1280px) {
     margin-left: -22rem;
