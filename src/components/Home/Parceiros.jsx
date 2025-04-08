@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
+  width: 100%;
   padding: 20px;
   font-weight: bold;
 `;
@@ -25,7 +25,7 @@ const Title = styled.h2`
   backdrop-filter: blur(5px);
   text-shadow: 0 0 2px #000, 0 0 4px #000, 0 0 6px #000;
   opacity: 0;
-  width: fit-content;
+  width: 100%;
 `;
 
 const RowContainer = styled.div`
