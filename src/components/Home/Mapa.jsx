@@ -111,6 +111,8 @@ const Mapa = () => {
   });
 
   return (
+<div><p className="texto-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quam blanditiis odit illo debitis? Magni iste dolores id laudantium culpa recusandae, inventore ut rem animi eos explicabo beatae natus doloremque.</p></div>,
+  
     <MapWrapper>
       <MapContainer
         center={position}
