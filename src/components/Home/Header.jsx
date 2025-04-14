@@ -25,6 +25,7 @@ const HeaderMenu = styled.header`
   /* Estilo para dispositivos móveis */
   @media (max-width: 1024px) {
     justify-content: space-between;
+    z-index: 1;
   }
 
   /* Estilo para desktop (a partir de 1024px) */
