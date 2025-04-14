@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
+import { FaGoogle, FaFacebook, FaTwitter } from 'react-icons/fa';
 
 // Estilo para o contêiner principal
 const Container = styled.div`
@@ -15,7 +16,6 @@ const Container = styled.div`
   justify-content: center; /* Centraliza o conteúdo */
   align-items: center; /* Centraliza verticalmente */
 `;
-
 const SubContainer = styled.div`
   display: flex;
   width: 100%;
@@ -23,7 +23,6 @@ const SubContainer = styled.div`
   justify-content: center; /* Centraliza o conteúdo do SubContainer */
   align-items: center;
 `;
-
 const LogoSection = styled.div`
   background-color: rgba(201, 52, 52, 0.733);
   background: linear-gradient(
@@ -53,7 +52,6 @@ const LogoSection = styled.div`
     display: none;
   }
 `;
-
 const Logo = styled.div`
   background-image: url("https://github.com/Kapitour/Imgs-Padr-o/blob/main/login/LoginLogo.png?raw=true");
   background-size: contain;
@@ -62,7 +60,6 @@ const Logo = styled.div`
   width: 80%;
   height: 50%;
 `;
-
 const FormSection = styled.div`
   display: flex;
   justify-content: center;
@@ -77,7 +74,6 @@ const FormSection = styled.div`
     padding: 20px; /* Ajusta o padding para telas menores */
   }
 `;
-
 const FormBox = styled.div`
   background-color: #333;
   padding: 30px;
@@ -87,14 +83,12 @@ const FormBox = styled.div`
   width: 100%;
   max-width: 400px; /* Define a largura máxima */
 `;
-
 const Label = styled.label`
   display: block;
   margin-bottom: 10px;
   color: white; /* Texto claro */
   text-align: left;
 `;
-
 const Input = styled.input`
   width: 100%;
   padding: 10px;
@@ -110,7 +104,6 @@ const Input = styled.input`
     border: 2px solid #c3073f; /* Destaque ao focar */
   }
 `;
-
 const Button = styled.button`
   background-color: rgba(201, 52, 52, 0.884);
   color: #fff;
@@ -127,7 +120,6 @@ const Button = styled.button`
     transform: scale(1.05);
   }
 `;
-
 const Cadastro = styled(Link)`
   display: block;
   margin-top: 15px;
@@ -140,7 +132,6 @@ const Cadastro = styled(Link)`
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   }
 `;
-
 const Divider = styled.div`
   display: flex;
   align-items: center;
@@ -161,13 +152,11 @@ const Divider = styled.div`
     font-weight: bold;
   }
 `;
-
 const SocialIcons = styled.div`
   display: flex;
   justify-content: center;
   gap: 15px;
 `;
-
 const IconButton = styled.button`
   width: 40px;
   height: 40px;
@@ -187,7 +176,6 @@ const IconButton = styled.button`
     background-color: rgba(201, 52, 52, 1);
   }
 `;
-
 const BackButton = styled(Link)`
   position: absolute;
   top: 20px;
@@ -213,7 +201,6 @@ const BackButton = styled(Link)`
     background-color: #950740; /* Vermelho mais escuro */
   }
 `;
-
 const Login = ({ showPainel = true }) => {
   useEffect(() => {
     // Animação da LogoSection (movimento da esquerda para a posição inicial)
@@ -253,10 +240,10 @@ const Login = ({ showPainel = true }) => {
               <span>Login Por:</span>
             </Divider>
 
-            <SocialIcons>
-              <IconButton>G</IconButton>
-              <IconButton>F</IconButton>
-              <IconButton>T</IconButton>
+            <SocialIcons> 
+              <IconButton><FaGoogle /></IconButton>
+              <IconButton><FaFacebook /></IconButton>
+              <IconButton><FaTwitter /></IconButton>
             </SocialIcons>
           </FormBox>
         </FormSection>
