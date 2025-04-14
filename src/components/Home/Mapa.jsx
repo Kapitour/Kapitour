@@ -6,14 +6,17 @@ import { useState } from "react";
 import PontosMapa from "./PontosMapa"; // Importando os pontos turísticos
 
 const MapWrapper = styled.div`
-  height: calc(100vh - 70px); /* Subtraia a altura do Header */
+  height: 50rem; /* Subtraia a altura do Header */
   width: 100%;
   display: flex;
   justify-content: center; /* Centraliza horizontalmente */
   align-items: center; /* Centraliza verticalmente */
-  padding: 0 40px;
+  padding: 0 50px;
+  padding-top: 70px;
   box-sizing: border-box;
   margin-top: 70px; /* Espaço para evitar sobreposição */
+  position: relative;
+  z-index: 0;
   
   /* Media Queries */
   @media (max-width: 768px) {
@@ -30,10 +33,8 @@ const MapWrapper = styled.div`
     margin-left: -50px;
     left: 10px;
     right: 10px;
-    top: 20px;
+    top: -15rem;
     width: 130vw;
-    margin-top: -20rem;
-    z-index: 1;
   }
 
   @media (min-width: 375px) {
@@ -44,54 +45,42 @@ const MapWrapper = styled.div`
     right: 20px;
     width: 130vw;
     padding: 20px;
-    margin-top: -20rem;
   }
 
   @media (min-width: 768px) {
     width: 100%;
     height: calc(100vh - 70px); /* Restabelece as dimensões para dispositivos maiores */
-    margin-top: 70px;
   }
 `;
 
+
 const Container = styled.div`
   height: 80%;
-  width: 100%;
-  max-width: 400px; /* Limita a largura máxima */
+  width: 30%;
   background-color: rgba(201, 52, 52, 0.733);
   border-radius: 15px;
   padding: 20px;
   overflow-y: auto;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  /* Media Queries para responsividade */
-  @media (max-width: 768px) {
-    width: 90%; /* Reduz a largura em telas menores */
-    margin-top: 10px;
-    height: 50%;
-  }
-
-  @media (max-width: 425px) {
-    width: 95%; /* Aumenta a largura no menor tamanho de tela */
-    height: 50%;
-    margin-top: 10px;
+  
+  @media (min-width: 320px) {
+    display: flex;
+    margin-top: 1rem;
+    gap:2rem;
+    width:250px;
+    height: 500px;
+    
   }
 `;
 
 const Title = styled.h2`
   font-size: 20px;
   margin-bottom: 10px;
-  text-align: center;
 `;
 
 const Description = styled.p`
   font-size: 16px;
   line-height: 1.5;
-  text-align: center;
 `;
 
 const Mapa = () => {
@@ -111,8 +100,6 @@ const Mapa = () => {
   });
 
   return (
-<div><p className="texto-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quam blanditiis odit illo debitis? Magni iste dolores id laudantium culpa recusandae, inventore ut rem animi eos explicabo beatae natus doloremque.</p></div>,
-  
     <MapWrapper>
       <MapContainer
         center={position}
