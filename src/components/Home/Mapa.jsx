@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { useState } from "react";
-import PontosMapa from "./PontosMapa"; // Importando os pontos turísticos
+import PontosMapa from "./PontosMapa";
 
 const MapWrapper = styled.div`
   height: 60rem; /* Ajuste a altura para ser maior no site normal */
@@ -151,3 +151,16 @@ const Mapa = () => {
 };
 
 export default Mapa;
+
+// Styles
+
+const Title = styled.h2`
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: white;
+`;
+
+const Description = styled.p`
+  font-size: 18px;
+  color: white;
+`;
