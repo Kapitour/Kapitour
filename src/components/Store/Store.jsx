@@ -1,29 +1,116 @@
 // src/components/Store.jsx
-import { useState } from 'react';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import styled from 'styled-components';
-
-const products = [  {    id: 1,    title: 'Camiseta Básica',    description: 'Camiseta de algodão confortável',    price: 59.90,    image: 'https://via.placeholder.com/300x400',    details: {      sizes: ['P', 'M', 'G', 'GG'],
-      colors: ['Branco', 'Preto', 'Cinza'],
-      material: '100% Algodão'
-    }
+import { useState } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import styled from "styled-components";
+import Header from "../Home/Header";
+const products = [
+  {
+    id: 1,
+    title: "Camiseta Kapitour",
+    description: "Camiseta de algodão confortável",
+    price: 50.0,
+    image: "https://via.placeholder.com/300x400",
+    details: {
+      sizes: ["P", "M", "G", "GG", "XG", "XGG"],
+      colors: ["Preto"],
+      material: "100% Algodão",
+    },
   },
   {
     id: 2,
-    title: 'Calça Jeans',
-    description: 'Calça jeans slim fit',
-    price: 129.90,
-    image: 'https://via.placeholder.com/300x400',
+    title: "Mini Hugito",
+    description: "Mini Hugito feito a mão de crochê",
+    price: 35.0,
+    image: "https://via.placeholder.com/300x400",
     details: {
-      sizes: ['38', '40', '42', '44'],
-      colors: ['Azul Escuro', 'Azul Claro'],
-      material: '98% Algodão, 2% Elastano'
-    }
-  }
+      sizes: ["P"],
+      colors: ["Única"],
+      material: "100% Algodão",
+    },
+  },
   // Adicione mais produtos aqui
 ];
+
+const Store = () => {
+  const [openDialog, setOpenDialog] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleOpenDialog = (product) => {
+    setSelectedProduct(product);
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+    setSelectedProduct(null);
+  };
+
+  return (
+    <StoreContainer>
+      <Header />
+      <StoreTitle>Kapi Store</StoreTitle>
+      <ProductsGrid>
+        {products.map((product) => (
+          <ProductCard key={product.id}>
+            <ProductImage src={product.image} alt={product.title} />
+            <ProductInfo>
+              <ProductTitle>{product.title}</ProductTitle>
+              <ProductDescription>{product.description}</ProductDescription>
+              <ProductPrice>
+                A partir de: R$ {product.price.toFixed(2)}
+              </ProductPrice>
+              <BuyButton onClick={() => handleOpenDialog(product)}>
+                Comprar
+              </BuyButton>
+            </ProductInfo>
+          </ProductCard>
+        ))}
+      </ProductsGrid>
+
+      <Dialog open={openDialog} onClose={handleCloseDialog}>
+        {selectedProduct && (
+          <>
+            <DialogTitle>{selectedProduct.title}</DialogTitle>
+            <DialogContent>
+              <DialogContentWrapper>
+                <DialogImage
+                  src={selectedProduct.image}
+                  alt={selectedProduct.title}
+                />
+                <DialogDetails>
+                  <p>{selectedProduct.description}</p>
+                  <p>
+                    <strong>Preço:</strong> R${" "}
+                    {selectedProduct.price.toFixed(2)}
+                  </p>
+                  <p>
+                    <strong>Tamanhos disponíveis:</strong>{" "}
+                    {selectedProduct.details.sizes.join(", ")}
+                  </p>
+                  <p>
+                    <strong>Cores:</strong>{" "}
+                    {selectedProduct.details.colors.join(", ")}
+                  </p>
+                  <p>
+                    <strong>Material:</strong>{" "}
+                    {selectedProduct.details.material}
+                  </p>
+                  <BuyButton to="/login">Adicionar ao Carrinho</BuyButton>
+                </DialogDetails>
+              </DialogContentWrapper>
+            </DialogContent>
+          </>
+        )}
+      </Dialog>
+    </StoreContainer>
+  );
+};
+
+export default Store;
+
+// styles
 
 const StoreContainer = styled.div`
   max-width: 1200px;
@@ -35,10 +122,10 @@ const StoreTitle = styled.h1`
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 40px;
-  color: #333;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
+  color: #fff;
+  padding-top: 30px;
+  @media (min-width: 2px) and (max-width: 424) {
+    padding-top: 40px;
   }
 `;
 
@@ -57,7 +144,7 @@ const ProductsGrid = styled.div`
 `;
 
 const ProductCard = styled.div`
-  background: white;
+  background: rgba(201, 52, 52, 0.733);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -85,7 +172,7 @@ const ProductInfo = styled.div`
 const ProductTitle = styled.h2`
   font-size: 1.25rem;
   margin: 0 0 10px;
-  color: #333;
+  color: #fff;
 
   @media (max-width: 768px) {
     font-size: 1.1rem;
@@ -94,7 +181,7 @@ const ProductTitle = styled.h2`
 
 const ProductDescription = styled.p`
   font-size: 0.9rem;
-  color: #666;
+  color: #fff;
   margin: 0 0 15px;
 
   @media (max-width: 768px) {
@@ -104,7 +191,7 @@ const ProductDescription = styled.p`
 
 const ProductPrice = styled.p`
   font-size: 1.1rem;
-  color: #2c7a7b;
+  color: #fff;
   margin: 0 0 15px;
   font-weight: bold;
 `;
@@ -112,16 +199,20 @@ const ProductPrice = styled.p`
 const BuyButton = styled.button`
   width: 100%;
   padding: 10px;
-  background: #2c7a7b;
+  background: rgba(201, 52, 52, 0.884);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
   transition: background 0.3s ease;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  text-align: center;
 
   &:hover {
-    background: #236e6f;
+    background: #fff;
+    color: rgba(201, 52, 52, 0.884);
   }
 `;
 
@@ -156,62 +247,3 @@ const DialogDetails = styled.div`
     color: #333;
   }
 `;
-
-const Store = () => {
-  const [openDialog, setOpenDialog] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
-  const handleOpenDialog = (product) => {
-    setSelectedProduct(product);
-    setOpenDialog(true);
-  };
-
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-    setSelectedProduct(null);
-  };
-
-  return (
-    <StoreContainer>
-      <StoreTitle>Nossa Loja</StoreTitle>
-      <ProductsGrid>
-        {products.map((product) => (
-          <ProductCard key={product.id}>
-            <ProductImage src={product.image} alt={product.title} />
-            <ProductInfo>
-              <ProductTitle>{product.title}</ProductTitle>
-              <ProductDescription>{product.description}</ProductDescription>
-              <ProductPrice>A partir de: R$ {product.price.toFixed(2)}</ProductPrice>
-              <BuyButton onClick={() => handleOpenDialog(product)}>
-                Comprar
-              </BuyButton>
-            </ProductInfo>
-          </ProductCard>
-        ))}
-      </ProductsGrid>
-
-      <Dialog open={openDialog} onClose={handleCloseDialog}>
-        {selectedProduct && (
-          <>
-            <DialogTitle>{selectedProduct.title}</DialogTitle>
-            <DialogContent>
-              <DialogContentWrapper>
-                <DialogImage src={selectedProduct.image} alt={selectedProduct.title} />
-                <DialogDetails>
-                  <p>{selectedProduct.description}</p>
-                  <p><strong>Preço:</strong> R$ {selectedProduct.price.toFixed(2)}</p>
-                  <p><strong>Tamanhos disponíveis:</strong> {selectedProduct.details.sizes.join(', ')}</p>
-                  <p><strong>Cores:</strong> {selectedProduct.details.colors.join(', ')}</p>
-                  <p><strong>Material:</strong> {selectedProduct.details.material}</p>
-                  <BuyButton>Adicionar ao Carrinho</BuyButton>
-                </DialogDetails>
-              </DialogContentWrapper>
-            </DialogContent>
-          </>
-        )}
-      </Dialog>
-    </StoreContainer>
-  );
-};
-
-export default Store;
