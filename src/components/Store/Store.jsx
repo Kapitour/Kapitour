@@ -12,7 +12,7 @@ const products = [
     id: 1,
     title: "Camiseta Kapitour",
     description: "Camiseta de algodão confortável",
-    price: 50.0,
+    price: 49.90,
     images: [
       "https://github.com/Kapitour/Imgs-Padr-o/blob/main/Produtos/blusa1frente.png?raw=true",
       "https://github.com/Kapitour/Imgs-Padr-o/blob/main/Produtos/blusa2costas.png?raw=true"
@@ -27,7 +27,7 @@ const products = [
     id: 2,
     title: "KapriSilha",
     description: "Mini Presilhas de capivaras",
-    price: 30.0,
+    price: 4.90,
     images: ["https://img.kwcdn.com/product/open/dac6f20ab3d24bddaf3dd7780e2b1d58-goods.jpeg?imageView2/2/w/800/q/70/format/webp"],
     details: {
       sizes: ["Diferentes Modelos"],
