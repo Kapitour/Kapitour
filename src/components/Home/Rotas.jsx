@@ -34,35 +34,46 @@ const Container = styled.div`
 
 const SubContainer = styled.div`
   background-image: url("https://github.com/Kapitour/Imgs-Padr-o/blob/main/home/ara%C3%A7ariba.jpg?raw=true");
-  background-size: cover; /* Imagem ajustada ao tamanho */
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   margin: 10%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90%;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: auto;
   width: 100%;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0px 4px 15px rgb(0, 0, 0);
-  position: relative; /* Necessário para o posicionamento absoluto dos elementos internos */
+  position: relative;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
 `;
 
 const Text = styled.div`
-  background-color: rgba(0, 0, 0, 0.253); /* Transparencia */
+  background-color: rgba(0, 0, 0, 0.253);
   color: #fff;
   font-weight: 200;
   font-size: 35px;
   line-height: 1.5;
-  text-align: left; /* Alinhado à esquerda */
+  text-align: left;
   max-width: 400px;
-  position: absolute; /* Posicionamento absoluto */
-  top: 20px; /* Distância do topo */
-  left: 20px; /* Distância da esquerda */
   text-shadow: 0px 4px 15px rgb(0, 0, 0);
   border-radius: 10px;
   padding: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    max-width: 100%;
+  }
 `;
 
 const Btn = styled.a`
@@ -79,14 +90,19 @@ const Btn = styled.a`
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, letter-spacing 0.3s ease,
     text-shadow 0.3s ease;
-  position: absolute; /* Posicionamento absoluto */
-  bottom: 20px; /* Distância da parte inferior */
-  right: 20px; /* Distância da parte direita */
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 
   &:hover {
     letter-spacing: 1px;
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    margin-top: auto;
   }
 `;
 

@@ -30,7 +30,6 @@ const ContactDetails = styled.div`
   text-align: center;
   opacity: ${(props) => (props.show ? 1 : 0)};
   transition: opacity 2s ease; /* Transição de 2s */
-  
 `;
 
 const Title = styled.h1`
@@ -90,7 +89,6 @@ const Link = styled.a`
     outline: 0;
   }
 `;
-
 
 // Botão no estilo Button 56
 const StyledButton = styled.button`
@@ -203,7 +201,6 @@ const Input = styled.input`
     transition: transform 0.2s ease-out;
     z-index: -1;
   }
-
 `;
 
 const TextArea = styled.textarea`
@@ -231,7 +228,6 @@ const TextArea = styled.textarea`
   user-select: none;
   touch-action: manipulation;
   transition: background-color 0.3s ease, transform 0.3s ease;
-
 `;
 
 const ContactWidget = () => {

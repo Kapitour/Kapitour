@@ -12,6 +12,10 @@ const Container = styled.div`
   width: 100%;
   padding: 20px;
   font-weight: bold;
+
+  @media (min-width: 1024px) {
+    padding: 40px;
+  }
 `;
 
 const Title = styled.h2`
@@ -26,22 +30,28 @@ const Title = styled.h2`
   text-shadow: 0 0 2px #000, 0 0 4px #000, 0 0 6px #000;
   opacity: 0;
   width: 100%;
+
+  @media (min-width: 1024px) {
+    font-size: 36px;
+    padding: 15px 30px;
+    margin-bottom: 40px;
+  }
 `;
 
 const RowContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
 `;
 
 const Card = styled.div`
   background-color: #333333b5;
   border-radius: 20px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 15px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,10 +59,17 @@ const Card = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 350px;
+  min-height: 350px;
   backdrop-filter: blur(5px);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   opacity: 0;
   transform: translateY(50px);
+
+  @media (min-width: 1024px) {
+    max-width: 400px;
+    padding: 30px;
+    min-height: 400px;
+  }
 `;
 
 const Parceiros = () => {
@@ -104,7 +121,14 @@ const Parceiros = () => {
               marginBottom: "15px",
             }}
           />
-          <div style={{ color: "#fff", fontSize: "14px", lineHeight: "1.5", marginBottom: "15px" }}>
+          <div
+            style={{
+              color: "#fff",
+              fontSize: "14px",
+              lineHeight: "1.5",
+              marginBottom: "15px",
+            }}
+          >
             Parceria com a AGM Associação dos Guias de Turismo de Maricá...
           </div>
           <a
@@ -133,7 +157,14 @@ const Parceiros = () => {
             alt="Vassouras Tec"
             style={{ width: "90%", marginBottom: "15px" }}
           />
-          <div style={{ color: "#fff", fontSize: "14px", lineHeight: "1.5", marginBottom: "15px" }}>
+          <div
+            style={{
+              color: "#fff",
+              fontSize: "14px",
+              lineHeight: "1.5",
+              marginBottom: "15px",
+            }}
+          >
             Vassouras Tec, incubadora tecnológica da Univassouras...
           </div>
         </Card>
