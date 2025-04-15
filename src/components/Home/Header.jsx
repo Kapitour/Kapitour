@@ -79,79 +79,59 @@ const HeaderMenu = styled.header`
   background-color: rgba(201, 52, 52, 0.733);
   color: white;
   text-align: center;
-  align-items: center;
-  justify-content: center;
   display: flex;
-  letter-spacing: 0;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
-  padding: 0;
-  margin: 0;
+  padding: 1em;
   width: 100%;
   z-index: 10;
-  padding: 1em;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-  font-weight: bold;
 
-  /* Estilo para dispositivos móveis */
   @media (max-width: 1024px) {
+    padding: 0.8em 1em;
+    flex-direction: row; /* <- Aqui faz a mágica */
     justify-content: space-between;
-    z-index: 1;
   }
 
-  /* Estilo para desktop (a partir de 1024px) */
   @media (min-width: 1024px) {
     justify-content: center;
-    margin: 0;
-    padding: 10px;
+    gap: 40px;
   }
 `;
 
 const Logo = styled(Link)`
   background-image: url("https://github.com/Kapitour/Imgs-Padr-o/blob/main/home/KapitourHeader.png?raw=true");
-  background-size: cover;
-  width: 70px;
+  background-size: contain; /* Mantém a proporção */
+  background-repeat: no-repeat;
+  width: 100px;
   height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: auto;
-  font-weight: bold;
+  transition: transform 0.3s ease;
 
-  @media screen and (min-width: 320px) and (max-width: 374px) {
-    margin-left: 13rem;
-    right: 40px;
-    width: 60px;
-    height: 50px;
+  @media (max-width: 425px) {
+    width: 80px;
+    height: 40px;
+    margin: 0 auto;
   }
-  @media (min-width: 375px) and (max-width: 424px) {
-    margin-left: 16rem;
-    right: 10px;
-    width: 60px;
-    height: 50px;
+
+  @media (min-width: 426px) and (max-width: 767px) {
+    width: 90px;
+    height: 45px;
+    margin: 0 auto;
   }
-  @media (min-width: 425px) and (max-width: 767px) {
-    margin-left: 20rem;
-    right: 20px;
-    width: 60px;
-    height: 50px;
-    position: fixed;
-  }
+
   @media (min-width: 768px) and (max-width: 1023px) {
-    margin-left: 50rem;
-    right: 35px;
-    width: 60px;
+    width: 100px;
     height: 50px;
-    position: fixed;
+    margin: 0 auto;
   }
-  @media (min-width: 1280px) {
-    margin-left: -22rem;
-    width: 60px;
-    height: 50px;
-    position: absolute;
+
+  @media (min-width: 1024px) {
+    margin-left: 20px;
   }
 `;
 
@@ -195,7 +175,7 @@ const HeaderBtn = styled(Link)`
 `;
 
 const LoginBtn = styled(Link)`
-  background-color: rgba(52, 122, 201, 0.88);
+  background-color: rgba(121, 25, 25, 0.88);
   color: #fff;
   text-decoration: none;
   cursor: pointer;

@@ -6,7 +6,7 @@ import { useState } from "react";
 import PontosMapa from "./PontosMapa"; // Importando os pontos turísticos
 
 const MapWrapper = styled.div`
-  height: 50rem; /* Subtraia a altura do Header */
+  height: 60rem; /* Ajuste a altura para ser maior no site normal */
   width: 100%;
   display: flex;
   justify-content: center; /* Centraliza horizontalmente */
@@ -14,73 +14,70 @@ const MapWrapper = styled.div`
   padding: 0 50px;
   padding-top: 70px;
   box-sizing: border-box;
-  margin-top: 70px; /* Espaço para evitar sobreposição */
-  position: relative;
+  margin-top: 70px; /* Espaço para evitar sobreposição com o Header */
+  position: relative; /* Garantir que o mapa não sobreponha o Header */
   z-index: 0;
-  
+
   /* Media Queries */
   @media (max-width: 768px) {
     padding: 0 10px;
     flex-direction: column;
     margin-top: 20px; /* Ajuste para evitar sobreposição */
+    width: 100%; /* Garantir que o mapa ocupe toda a largura disponível */
+    height: 40rem; /* Ajuste a altura do mapa para o mobile */
   }
 
   @media (min-width: 320px) {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centraliza verticalmente no mobile */
     justify-content: center;
-    margin-left: -50px;
-    left: 10px;
-    right: 10px;
-    top: -15rem;
-    width: 130vw;
+    margin-left: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%; /* Ajuste para o mapa preencher toda a largura */
+    height: 40rem; /* Ajuste a altura do mapa para o mobile */
   }
 
   @media (min-width: 375px) {
     align-items: center;
     justify-content: center;
-    margin-left: -60px;
-    left: 20px;
-    right: 20px;
-    width: 130vw;
+    margin-left: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     padding: 20px;
+    height: 50rem; /* Ajuste a altura do mapa para o mobile */
   }
 
   @media (min-width: 768px) {
     width: 100%;
-    height: calc(100vh - 70px); /* Restabelece as dimensões para dispositivos maiores */
+    height: calc(100vh - 70px); /* Ajuste para dispositivos maiores */
   }
 `;
 
-
 const Container = styled.div`
   height: 80%;
-  width: 30%;
+  width: 35%; /* Aumente a largura do container para a janela de informações */
   background-color: rgba(201, 52, 52, 0.733);
   border-radius: 15px;
   padding: 20px;
   overflow-y: auto;
   color: white;
-  
+
   @media (min-width: 320px) {
     display: flex;
     margin-top: 1rem;
-    gap:2rem;
-    width:250px;
-    height: 500px;
-    
+    gap: 2rem;
+    width: 280px; /* Aumente a largura no mobile */
+    height: 400px; /* Aumente a altura no mobile */
   }
-`;
 
-const Title = styled.h2`
-  font-size: 20px;
-  margin-bottom: 10px;
-`;
-
-const Description = styled.p`
-  font-size: 16px;
-  line-height: 1.5;
+  @media (min-width: 768px) {
+    width: 40%; /* Aumente a largura no site */
+    height: 60%; /* Ajuste a altura da janela de informações */
+  }
 `;
 
 const Mapa = () => {
@@ -90,7 +87,7 @@ const Mapa = () => {
   // Ícone personalizado
   const customIcon = new L.Icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
-    iconSize: [10, 10],
+    iconSize: [30, 30], // Aumente o tamanho do ícone
     iconAnchor: [15, 30],
     popupAnchor: [0, -30],
     shadowUrl:
@@ -104,7 +101,7 @@ const Mapa = () => {
       <MapContainer
         center={position}
         zoom={13}
-        style={{ height: "80%", width: "65%",}}
+        style={{ height: "80%", width: "100%" }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
