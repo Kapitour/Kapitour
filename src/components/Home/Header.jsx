@@ -285,12 +285,13 @@ const MessageButton = styled.button`
 
 // Estilo do Formulário de Contato
 const ContactForm = styled.div`
-  background-color: #fff;
+  background-color: #fff3f3;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  border: 2px solid #c93434;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   width: 400px;
-  max-width: 100%;
+  max-width: 95%;
   z-index: 1200;
 
   form {
@@ -305,20 +306,23 @@ const ContactForm = styled.div`
   label {
     font-size: 14px;
     margin-bottom: 5px;
-    color: #333;
+    color: #791919;
   }
 
   input,
   textarea {
     width: 100%;
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    border-radius: 8px;
+    border: 1px solid #c93434;
     font-size: 14px;
     outline: none;
+    background-color: #fff;
+    color: #333;
 
     &:focus {
-      border-color: #007bff;
+      border-color: #791919;
+      box-shadow: 0 0 0 2px rgba(201, 52, 52, 0.2);
     }
   }
 `;
@@ -334,16 +338,18 @@ const TextArea = styled.textarea`
 `;
 
 const SubmitButton = styled.button`
-  background-color: #28a745;
+  background-color: #c93434;
   color: #fff;
   padding: 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s;
 
   &:hover {
-    background-color: #218838;
+    background-color: #a72a2a;
+    transform: scale(1.05);
   }
 `;
