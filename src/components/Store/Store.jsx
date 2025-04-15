@@ -235,14 +235,22 @@ const DialogContentWrapper = styled.div`
 `;
 
 const DialogImage = styled.img`
-  width: 200px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 5px;
+  position: relative;
+  width: 40%;
+  height: 350px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  @media (max-width: 600px) {
-    width: 100%;
-    height: 200px;
+  @media (max-width: 768px) {
+    height: 280px;
+    align-itens:center;
+    
+  }
+
+  @media (max-width: 480px) {
+    height: 280px;
   }
 `;
 

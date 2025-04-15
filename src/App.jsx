@@ -4,6 +4,8 @@ import Home from "./components/Home/Home"; // Importe o Home.jsx
 import Register from "./components/Login/Register"; // Importe o Register.jsx
 import RotaPrincipal from "./components/Rotas/RotaPrincipal"; // Importe o RotaPrincipal.jsx
 import Store from "./components/Store/Store";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const App = () => {
   return (
