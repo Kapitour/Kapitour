@@ -3,6 +3,7 @@ import Login from "./components/Login/Login"; // Importe o Login.jsx
 import Home from "./components/Home/Home"; // Importe o Home.jsx
 import Register from "./components/Login/Register"; // Importe o Register.jsx
 import RotaPrincipal from "./components/Rotas/RotaPrincipal"; // Importe o RotaPrincipal.jsx
+import Store from "./components/Store/Store";
 
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         {/* Rota para o guia turístico */}
         <Route path="/rotas" element={<RotaPrincipal />} />
+        {/* Rota para a loja */}
+        <Route path="/loja" element={<Store />} />
       </Routes>
     </Router>
   );
