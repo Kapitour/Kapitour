@@ -13,8 +13,19 @@ const PainelWrapper = styled.div`
   align-items: center;
   padding: 2rem;
   box-sizing: border-box;
-`;
 
+  background-image: linear-gradient(
+      to bottom,
+      rgba(26, 26, 29, 0) 60%,
+      #2e2e2e 100%
+    ),
+    url("https://github.com/Kapitour/Imgs-Padr-o/blob/main/home/BackgroundHeader.png?raw=true");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+`;
 const PainelImage = styled.div`
   background-image: url("https://github.com/Kapitour/Imgs-Padr-o/blob/main/home/KapitourMarica.png?raw=true");
   background-repeat: no-repeat;
